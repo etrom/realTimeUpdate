@@ -1,1 +1,57 @@
 /* Styles */
+#statsContainer{
+    width: 50%;
+    border: 1px #C2C2C2 solid;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 5px 5px 5px #DDDDDD;
+    position:relative;
+
+
+}
+#subheads{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.items:hover {
+    background-color: #DDDDDD;
+    cursor: pointer;
+}
+
+.items {
+    height: 10px;
+    padding: 16px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+
+
+#heading{
+    background-color: #337AB7;
+    color: white;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    line-height: 65px;
+    padding-left: 20px;
+    font-family: sans-serif;
+}
+
+
+.title{
+    font-family: sans-serif;
+    float: right;
+    position: absolute;
+    font-size: .90em;
+    left:106px;
+    color: #7E7D7B;
+}
+
+
+.visits{
+    font-family: sans-serif;
+    position: absolute;
+    font-size: .90em;
+    right: 580px;
+    color: #7E7D7B;
+}
