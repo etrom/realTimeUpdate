@@ -12,6 +12,7 @@
 #subheads{
     margin-top: 10px;
     margin-bottom: 10px;
+    padding: 0 0 0 16px;
 }
 
 .item:hover {
@@ -33,6 +34,8 @@
     text-transform: uppercase;
     line-height: 65px;
     padding-left: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     font-family: sans-serif;
 }
 
@@ -49,7 +52,6 @@
 
 .visits{
     font-family: sans-serif;
-    position: absolute;
     font-size: .90em;
     right: 580px;
     color: #7E7D7B;
