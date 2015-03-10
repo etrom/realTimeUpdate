@@ -1,22 +1,21 @@
 /* Styles */
 #statsContainer{
-    width: 50%;
-    border: 1px #C2C2C2 solid;
-    border-radius: 5px;
+    border-radius: 6px;
     position: relative;
+    border: 1px #C2C2C2 solid;
+    margin: 30px;
+    background-color: white;
     box-shadow: 5px 5px 5px #DDDDDD;
-    position:relative;
-
 }
 
-#subheads{
+.subheads{
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 0 0 0 16px;
 }
 
 .item:hover {
-    background-color: #DDDDDD;
+    background-color: #F2F2F2;
     cursor: pointer;
 }
 
@@ -26,9 +25,8 @@
     border-bottom: 1px solid #DDDDDD;
 }
 
-
 #heading{
-    background-color: #337AB7;
+    background-color: #13739E;
     color: white;
     font-size: 1.2em;
     text-transform: uppercase;
@@ -39,7 +37,6 @@
     font-family: sans-serif;
 }
 
-
 .title{
     font-family: sans-serif;
     float: right;
@@ -47,12 +44,68 @@
     font-size: .90em;
     left:106px;
     color: #7E7D7B;
+    z-index: 5;
 }
-
 
 .visits{
     font-family: sans-serif;
     font-size: .90em;
     right: 580px;
     color: #7E7D7B;
+}
+#referrer-box {
+    width: 40%;
+    border: 1px solid #DDDDDD;
+    height: auto;
+    left: 685px;
+    background-color: white;
+    float: right;
+    z-index: 5;
+    position: absolute;
+    top: 147px;
+    border-radius: 5px;
+}
+
+.referrer-for{
+    background-color: #4FB0AC;
+    color: white;
+    font-size: .9em;
+    text-transform: uppercase;
+    line-height: 25px;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-family: sans-serif;
+}
+
+
+.referrer-info{
+    height: 10px;
+    padding: 16px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.referrer {
+    font-family: sans-serif;
+    float: right;
+    left: 11.0em;
+    font-size: .9em;
+    color: #7E7D7B;
+    z-index: 5;
+    position: absolute;
+}
+
+.num {
+    font-family: sans-serif;
+    font-size: .90em;
+    color: #7E7D7B;
+    z-index: 5;
+}
+
+.gray {
+    color: #B5B3B3;
+    font-size: .85em;
+    border-bottom: none;
 }

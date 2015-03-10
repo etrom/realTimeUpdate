@@ -24,16 +24,17 @@ var allMyFunctions = {
     fetchData: function(result) {
         var items =  document.getElementById('items');
         var myResults = {};
-        for (var i=0; i < result.pages.length; i++) {
+        for (var i=0; i < 10; i++) {
             myResults[result.pages[i].stats.people] = result.pages[i].title
         }
-        this.data = myResults;
+        this.data = result
+        this.array = myResults;
 
         return this;
     },
 
     sortByKeys: function() {
-        var input = this.data;
+        var input = this.array;
         var arraykeys=[];
         for(var k in input) {arraykeys.push(k);}
         arraykeys.sort();
@@ -48,19 +49,15 @@ var allMyFunctions = {
 
     createDom: function() {
         var array = this.array;
-        var datas = this.data;
-
-
+        var data = this.data;
         var items = document.createElement('div');
         items.setAttribute('id','items')
 
         Object.keys(array).reverse().forEach(function(v, i) {
-            console.log(v, array[v] + ' hey');
             var item = document.createElement('div');
             item.setAttribute('class', 'item');
             item.addEventListener('click', function(){
-                debugger;
-              this.openRefStats(datas.pages[i].stats.toprefs);
+              toggleRefStats(data.pages[i]);
             })
             items.appendChild(item);
             var visits = document.createElement('span');
@@ -74,10 +71,71 @@ var allMyFunctions = {
         })
         this.itemsObj = items;
         return this;
-    },
-
-    openRefStats:function(array) {
-        console.log('top refs', array )
     }
 
+}
+
+function toggleRefStats(data) {
+    var statBox = document.getElementById('referrer-box')
+    //if clicked define last click
+    if(statBox !== null){
+        var lastClicked = document.getElementsByClassName('referrer-for')[0].innerHTML
+    }
+    //if clicking the same item close it
+    if( statBox !== null && lastClicked === data.title) {
+        document.body.removeChild(statBox)
+    //open new statbox
+    } else {
+        var array = data.stats.toprefs;
+        var items = document.getElementsByClassName('item');
+        for(var i=0; i < items.length; i++) {
+            var thisItem = items[i].getElementsByClassName('title')[0];
+            if (thisItem.innerHTML === data.title) {
+                var topRefsBox = document.createElement('div');
+                topRefsBox.setAttribute('id', 'referrer-box');
+                 var referrals = document.createElement('span');
+                 referrals.setAttribute('class', 'num gray');
+                 referrals.innerHTML = 'referrals';
+                 var referralSite = document.createElement('span');
+                 referralSite.setAttribute('class', 'referrer gray');
+                 referralSite.innerHTML = 'referral site';
+
+                if(statBox !== null) {
+                    document.body.replaceChild(topRefsBox, statBox);
+                } else {
+                    document.body.appendChild(topRefsBox);
+                }
+                var referrerFor = document.createElement('div');
+                referrerFor.setAttribute('class', 'referrer-for');
+                referrerFor.innerHTML = data.title;
+                var referrerInfo = document.createElement('div');
+                referrerInfo.setAttribute('class', 'subheads');
+                topRefsBox.appendChild(referrerFor);
+                referrerInfo.appendChild(referrals);
+                referrerInfo.appendChild(referralSite);
+                topRefsBox.appendChild(referrerInfo);
+                var length;
+                if (array.length < 5){
+                    debugger;
+                    length = array.length
+                } else {
+                    length = 5;
+                }
+                for(var j= 0; j < length; j++) {
+                    var num = document.createElement('span');
+                    num.setAttribute('class', 'num');
+                    num.innerHTML = array[j].visitors;
+                    var referrer = document.createElement('span');
+                    referrer.setAttribute('class', 'referrer');
+                    referrer.innerHTML = array[j].domain;
+                    var referrerInfo = document.createElement('div')
+                    referrerInfo.setAttribute('class', 'referrer-info');
+                    referrerInfo.appendChild(num);
+                    referrerInfo.appendChild(referrer);
+                    topRefsBox.appendChild(referrerInfo);
+                }
+            }
+        }
+
+    }
 }
