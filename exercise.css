@@ -7,24 +7,23 @@
     box-shadow: 5px 5px 5px #DDDDDD;
     position:relative;
 
-
 }
+
 #subheads{
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.items:hover {
+.item:hover {
     background-color: #DDDDDD;
     cursor: pointer;
 }
 
-.items {
+.item {
     height: 10px;
     padding: 16px;
     border-bottom: 1px solid #DDDDDD;
 }
-
 
 
 #heading{
