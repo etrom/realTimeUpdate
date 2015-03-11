@@ -104,6 +104,15 @@
     z-index: 5;
 }
 
+.ref-subhead {
+    background-color: #4FB0AC;
+    color: white;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-family: sans-serif;
+    font-size: 0.8em;
+}
+
 .gray {
     color: #B5B3B3;
     font-size: .85em;
