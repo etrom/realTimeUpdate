@@ -29,7 +29,6 @@ var allMyFunctions = {
         }
         this.data = result
         this.array = myResults;
-        console.log(this.array, 'in fetch')
 
         return this;
     },
@@ -38,21 +37,13 @@ var allMyFunctions = {
         var input = this.array;
 
         var sortable = [];
-        for (var value in input)
-              sortable.push([value, input[value]])
+        for (var value in input) {
+            sortable.push([value, input[value]])
+        }
         sortable.sort(function(a, b) {
-            this.array =   a[1] - b[1]
-            })
+            this.array = a[1] - b[1]
+        })
 
-        // for(var k in input) {arraykeys.push(k);}
-        // arraykeys.sort();
-
-        // var newArray=[];
-        // for(var i=arraykeys.length-1; i>=0; i--) {
-
-        //     newArray[arraykeys[i]] = input[arraykeys[i]];
-        // }
-        console.log(this.array, 'in sort')
         return this;
     },
 
@@ -63,7 +54,6 @@ var allMyFunctions = {
         items.setAttribute('id','items')
 
         Object.keys(array).forEach(function(v, i) {
-            console.log(v, array[v], 'hey')
             var item = document.createElement('div');
             item.setAttribute('class', 'item');
             item.addEventListener('click', function(){
