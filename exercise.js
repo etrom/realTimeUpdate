@@ -26,7 +26,7 @@ var allMyFunctions = {
         var myResults = {};
         for (var i=0; i < 10; i++) {
             console.log(result.pages[i], i)
-            myResults[result.pages[i].stats.people + this.randNum] = result.pages[i].title
+            myResults[result.pages[i].stats.people] = result.pages[i].title
         }
         var inputLeng = Object.keys(myResults).length
 
