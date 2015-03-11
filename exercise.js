@@ -25,33 +25,34 @@ var allMyFunctions = {
         var items =  document.getElementById('items');
         var myResults = {};
         for (var i=0; i < 10; i++) {
-            console.log(result.pages[i], i)
-            myResults[result.pages[i].stats.people] = result.pages[i].title
+            myResults[result.pages[i].title] = result.pages[i].stats.people
         }
-        var inputLeng = Object.keys(myResults).length
-
         this.data = result
         this.array = myResults;
-        console.log(this.array)
+        console.log(this.array, 'in fetch')
 
         return this;
     },
 
     sortByKeys: function() {
-        debugger;
         var input = this.array;
-        var arraykeys=[];
 
-        for(var k in input) {arraykeys.push(k);}
-        arraykeys.sort();
+        var sortable = [];
+        for (var value in input)
+              sortable.push([value, input[value]])
+        sortable.sort(function(a, b) {
+            this.array =   a[1] - b[1]
+            })
 
-        var newArray=[];
-        for(var i=arraykeys.length-1; i>=0; i--) {
+        // for(var k in input) {arraykeys.push(k);}
+        // arraykeys.sort();
 
-            newArray[arraykeys[i]] = input[arraykeys[i]];
-        }
+        // var newArray=[];
+        // for(var i=arraykeys.length-1; i>=0; i--) {
 
-        this.array = newArray;
+        //     newArray[arraykeys[i]] = input[arraykeys[i]];
+        // }
+        console.log(this.array, 'in sort')
         return this;
     },
 
@@ -61,7 +62,8 @@ var allMyFunctions = {
         var items = document.createElement('div');
         items.setAttribute('id','items')
 
-        Object.keys(array).reverse().forEach(function(v, i) {
+        Object.keys(array).forEach(function(v, i) {
+            console.log(v, array[v], 'hey')
             var item = document.createElement('div');
             item.setAttribute('class', 'item');
             item.addEventListener('click', function(){
@@ -70,11 +72,11 @@ var allMyFunctions = {
             items.appendChild(item);
             var visits = document.createElement('span');
             visits.setAttribute('class', 'visits');
-            visits.innerHTML = v;
+            visits.innerHTML = array[v];
             item.appendChild(visits);
             var title = document.createElement('span');
             title.setAttribute('class', 'title');
-            title.innerHTML = array[v].trim()
+            title.innerHTML = v.trim();
             item.appendChild(title)
         })
         this.itemsObj = items;
@@ -102,11 +104,9 @@ function toggleRefStats(data) {
                 topRefsBox.setAttribute('id', 'referrer-box');
                 //if it already existed replace the old one
                 if(statBox !== null) {
-                    debugger;
                     document.body.replaceChild(topRefsBox, statBox);
                 //create new one
                 } else {
-                    debugger;
                     document.body.appendChild(topRefsBox);
                 }
                 addRefheadings(data, topRefsBox);
