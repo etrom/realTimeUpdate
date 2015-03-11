@@ -6,6 +6,7 @@
     margin: 30px;
     background-color: white;
     box-shadow: 5px 5px 5px #DDDDDD;
+    height: auto;
 }
 
 .subheads{
@@ -20,7 +21,8 @@
 }
 
 .item {
-    height: 10px;
+    height: auto;
+    line-height: auto;
     padding: 16px;
     border-bottom: 1px solid #DDDDDD;
 }
@@ -30,8 +32,8 @@
     color: white;
     font-size: 1.2em;
     text-transform: uppercase;
-    line-height: 65px;
-    padding-left: 20px;
+    line-height: auto;
+    padding: 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     font-family: sans-serif;
@@ -53,17 +55,38 @@
     right: 580px;
     color: #7E7D7B;
 }
-#referrer-box {
-    width: 40%;
-    border: 1px solid #DDDDDD;
-    height: auto;
-    left: 685px;
-    background-color: white;
-    float: right;
-    z-index: 5;
-    position: absolute;
-    top: 147px;
-    border-radius: 5px;
+
+
+
+/*fullscreen*/
+    #referrer-box {
+        width: 40%;
+        border: 1px solid #DDDDDD;
+        height: auto;
+        left: 685px;
+        background-color: white;
+        float: right;
+        z-index: 5;
+        position: absolute;
+        margin: 0px;
+        top: 147px;
+        border-radius: 5px;
+}
+
+@media (max-width: 1050px) {
+    #referrer-box {
+        width: 90%;
+        border: 1px solid #DDDDDD;
+        height: auto;
+        left: 0px;
+        float: none;
+        position: relative;
+        background-color: white;
+        z-index: 5;
+        margin: 30px;
+        top: 0px;
+        border-radius: 5px;
+    }
 }
 
 .referrer-for{
